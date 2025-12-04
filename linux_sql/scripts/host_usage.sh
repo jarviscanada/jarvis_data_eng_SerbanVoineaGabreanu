@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#This script is responsible for collecting the server's suage data, and then said data is inserted into a psql database.
+#This script is responsible for collecting the server's usage data, and then said data is inserted into a psql database.
 #Crontab should be configured to run this script ideally every minute.
 
 #Setup/Validation arguments

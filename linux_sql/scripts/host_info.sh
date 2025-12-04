@@ -1,7 +1,7 @@
 \#!/bin/bash
 
-#This script is responsible for collecting the server's suage data, and then said data is inserted into a psql database.
-#Crontab should be configured to run this script ideally every minute.
+#This script is responsible for collecting hardware specification data and then inserting it into the host_info table.
+#This script only needs to be run once for a machine.
 
 #Setup/Validation arguments
 psql_host=$1
