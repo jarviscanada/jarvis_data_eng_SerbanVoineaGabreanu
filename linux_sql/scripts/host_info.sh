@@ -1,4 +1,4 @@
-\#!/bin/bash
+#!/bin/bash
 
 #This script is responsible for collecting hardware specification data and then inserting it into the host_info table.
 #This script only needs to be run once for a machine.
@@ -26,9 +26,7 @@ cpu_mhz=$(grep -m 1 "^cpu MHz" /proc/cpuinfo | awk -F: '{print $2}' | xargs | cu
 l2_cache=$(echo "$lscpu_out" | egrep "^L2 cache:" | awk '{print $3}' | sed 's/K//' | xargs)
 total_mem=$(echo "$meminfo_out" | egrep "^MemTotal:" | awk '{print $2}' | xargs)
 timestamp=$(vmstat -t | tail -n1 | awk '{print $(NF-1) " " $NF}' | xargs) 
-
-#Query for finding matching id in the host_info table.
-host_id="(SELECT id FROM host_info WHERE hostname='$hostname')"
+hostname=$(hostname -f)
 
 #PSQL command for inserting sever usage data in the host_info table.
 insert_stmt="INSERT INTO host_info(hostname, cpu_number, cpu_architecture, cpu_model, cpu_mhz, l2_cache, total_mem, timestamp)
