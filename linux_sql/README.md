@@ -15,7 +15,7 @@ Insert the hardware specification data into the DB using host_info.sh
 `./scripts/host_info.sh localhost 5432 host_agent postgres password `
 
 Set crontab to run every minute 
-`crontab -e * * * * * bash /absolute/path/to/scripts/host_usage.sh localhost 5432 host_agent postgres your_password > /tmp/host_usage.log 2>&1` 
+`crontab -e * * * * * bash /absolute/path/to/scripts/host_usage.sh localhost 5432 host_agent postgres password > /tmp/host_usage.log 2>&1` 
 
 To run after setup: 
 Start the postgres services after a reboot
