@@ -1,0 +1,4 @@
+#Crontab command
+Open crontab to edit: crontab -e 
+Enter command below:
+* * * * * bash /home/rocky/dev/jarvis_data_eng_SerbanVoineaGabreanu/linux_sql/scripts localhost 5432 host_agent postgres password > /tmp/host_usage.log 2>&1
